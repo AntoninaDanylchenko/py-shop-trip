@@ -1,10 +1,10 @@
-from app.product import Product
+from app.product import Products
 
 
 class Shop:
     def __init__(self,
                  name: str,
-                 products: Product,
+                 products: Products,
                  location: list) -> None:
         self.name = name
         self.products = products

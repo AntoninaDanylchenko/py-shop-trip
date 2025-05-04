@@ -3,13 +3,13 @@ import math
 from decimal import Decimal
 
 from app.car import Car
-from app.product import Product
+from app.product import Products
 from app.shop import Shop
 
 
 class Customer:
     def __init__(self, name: str,
-                 product_cart: Product,
+                 product_cart: Products,
                  location: list,
                  money: float,
                  car: Car) -> None:
@@ -39,7 +39,7 @@ class Customer:
         print(f"Thanks, {self.name}, for your purchase!")
         print("You have bought:")
         print(f"{self.product_cart.milk} milks "
-              f"for {Decimal(self.product_cart.milk * other.products.milk)}"
+              f"for {self.product_cart.milk * other.products.milk}"
               f" dollars")
         print(f"{self.product_cart.bread} breads for "
               f"{Decimal(self.product_cart.bread * other.products.bread)} "

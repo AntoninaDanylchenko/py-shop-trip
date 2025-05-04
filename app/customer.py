@@ -33,19 +33,18 @@ class Customer:
 
     def print_check(self, other: Shop) -> None:
         date_now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        milk = self.product_cart.milk * other.products.milk
-        bread = self.product_cart.bread * other.products.bread
-        butter = self.product_cart.butter * other.products.butter
+        milk = str(self.product_cart.milk * other.products.milk).rstrip(".0")
+        bread = str(self.product_cart.bread
+                    * other.products.bread).rstrip(".0")
+        butter = str(self.product_cart.butter
+                     * other.products.butter).rstrip(".0")
         print("")
         print(f"Date: {date_now}")
         print(f"Thanks, {self.name}, for your purchase!")
         print("You have bought:")
-        print(f"{self.product_cart.milk} milks for "
-              f"{str(milk).rstrip(".0")} dollars")
-        print(f"{self.product_cart.bread} breads for "
-              f"{str(bread).rstrip(".0")} dollars")
-        print(f"{self.product_cart.butter} butters for "
-              f"{str(butter).rstrip(".0")} dollars")
+        print(f"{self.product_cart.milk} milks for {milk} dollars")
+        print(f"{self.product_cart.bread} breads for {bread} dollars")
+        print(f"{self.product_cart.butter} butters for {butter} dollars")
         print(f"Total cost is {self.groceries(other)} dollars")
         print("See you again!")
         print("")

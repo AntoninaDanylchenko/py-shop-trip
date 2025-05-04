@@ -1,6 +1,5 @@
 import datetime
 import math
-from decimal import Decimal
 
 from app.car import Car
 from app.product import Products
@@ -34,19 +33,19 @@ class Customer:
 
     def print_check(self, other: Shop) -> None:
         date_now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        milk = self.product_cart.milk * other.products.milk
+        bread = self.product_cart.bread * other.products.bread
+        butter = self.product_cart.butter * other.products.butter
         print("")
         print(f"Date: {date_now}")
         print(f"Thanks, {self.name}, for your purchase!")
         print("You have bought:")
-        print(f"{self.product_cart.milk} milks "
-              f"for {self.product_cart.milk * other.products.milk}"
-              f" dollars")
+        print(f"{self.product_cart.milk} milks for "
+              f"{str(milk).rstrip(".0")} dollars")
         print(f"{self.product_cart.bread} breads for "
-              f"{Decimal(self.product_cart.bread * other.products.bread)} "
-              f"dollars")
+              f"{str(bread).rstrip(".0")} dollars")
         print(f"{self.product_cart.butter} butters for "
-              f"{self.product_cart.butter * other.products.butter} "
-              f"dollars")
+              f"{str(butter).rstrip(".0")} dollars")
         print(f"Total cost is {self.groceries(other)} dollars")
         print("See you again!")
         print("")

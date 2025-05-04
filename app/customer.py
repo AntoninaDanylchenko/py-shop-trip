@@ -33,9 +33,9 @@ class Customer:
                 + self.product_cart.butter * other.products.butter)
 
     def print_check(self, other: Shop) -> None:
-        date_now = datetime.datetime.now()
+        date_now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         print("")
-        print(f"Date: {date_now.strftime("%d/%m/%Y %H:%M:%S")}")
+        print(f"Date: {date_now}")
         print(f"Thanks, {self.name}, for your purchase!")
         print("You have bought:")
         print(f"{self.product_cart.milk} milks "
